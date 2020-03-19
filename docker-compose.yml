@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  hubot:
+    build: .
+    depends_on:
+      - redis
+    environment:
+      REDIS_URL: redis://redis:6379
+    env_file: .env
+    stdin_open: true
+    tty: true
+    command: "bin/hubot -n bot -a slack"
+
+  redis:
+    image: redis:3.2-alpine
+    volumes:
+      - ./redis:/data

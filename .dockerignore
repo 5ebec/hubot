@@ -1,0 +1,4 @@
+.git/*
+.hubot_history
+node_modules/*
+redis/*
